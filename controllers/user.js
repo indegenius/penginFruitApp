@@ -78,7 +78,14 @@ router.post("/login", async (req, res) => {
       });
   });
 
-
+// logout route, get request to /user/logout
+router.get("/logout", (req, res) => {
+    // destroy the session
+    req.session.destroy((err) => {
+        // send user back to main page
+        res.redirect("/")
+    })
+})
   
 
 ////////////////////////////////
